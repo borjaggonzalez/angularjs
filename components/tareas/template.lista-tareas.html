@@ -1,0 +1,39 @@
+<!-- Listado  de tareas-->
+<h2 class="mt-4">{{titulo}}</h2>
+
+<div class="border p-2 text-center">
+        <input type="text" ng-model="nuevaTarea" class="form-control-lg" ng-attr-autofocus="true" placeholder="Descripcion de la tarea" >
+        <button ng-click="crearTarea()" class="btn btn-lg mb-2 btn-primary"><i class="fas fa-plus"></i></button>
+        <input type="text" ng-model="busqueda.descripcion" class="form-control-lg" placeholder="Buscar por Nombre" >
+        <button  class="btn btn-lg mb-2 btn-success"><i class="fas fa-search"></i></button>
+        <p class="text-danger">{{mensajeValidacion}}</p>
+</div>
+<div class="border p-2 text-center">
+        <input type="radio" ng-model="busqueda.completada" ng-checked="true" value=""> Todo
+        <input type="radio" ng-model="busqueda.completada" value="true"> Completadas
+        <input type="radio" ng-model="busqueda.completada" value="false"> No Completadas
+        
+</div>
+
+
+
+<p ng-show="tareas.length==0">Cargando Tareas...</p>
+    <ul class="list-group">
+        
+        <li class="list-group-item {{(tarea.completada)?'tachado':''}}"  ng-repeat="tarea in tareas | filter:busqueda">
+         
+          <span ng-hide="mostrarEditar" class="float-left">
+                <input type="checkbox" ng-checked="{{tarea.completada}}"  ng-click="completarTarea(tarea)" class="mr-2">
+            </span>
+            <input type="text" class="form-control mb-2 w-75 {{(mostrarEditar)?'':'no-editable'}} float-left"  ng-readonly="!mostrarEditar" ng-model="tarea.descripcion">   
+            <span ng-show="mostrarEditar">
+                <button class="btn btn-success" ng-click="editarTarea(tarea)">Guardar</button>
+               <button class="btn btn-danger" ng-click="mostrarEditar = !mostrarEditar; tarea.descripcion = oldDescripcion">Cancelar</button>
+            </span>
+                <i class="fas fa-trash-alt float-right ml-2" ng-click="eliminarTarea(tarea)"></i>
+               <i class="fas fa-pencil-alt float-right"  ng-click="mostrarEditar = !mostrarEditar; oldDescripcion = tarea.descripcion" ></i>
+     
+             
+      
+        </li>        
+    </ul> 

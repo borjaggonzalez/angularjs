@@ -1,0 +1,67 @@
+
+
+
+<div ng-controller = "crudController">
+    <div class="row"> 
+        <div class="col"><h1>{{titulo}}</h1></div>
+        <div class="col"></div>
+
+
+    </div>
+    <h3>TODO</h3>
+    <ol>
+        <li style="text-decoration: line-through">Pintar datos en Tabla</li>
+        <li style="text-decoration: line-through">Formulario para crear nuevas canciones</li>
+        <li style="text-decoration: line-through">Boton papelera para eliminar</li>
+        <li>Poder Modificar una cancion</li>
+        <li>Interesante para repaso Filtros y Ordenacion</li>
+    </ol>
+
+    {{canciones | json}}
+
+    
+    <div clas="col-6">
+    <table class="table  table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat= "cancion in canciones ">
+                <th scope="row" >{{cancion.id}}</th>
+                <td  scope="row">{{cancion.nombre}}</td>
+                <td  scope="row">
+                  <button  type="submit" ng-click="modificarCancion(cancion)" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button>
+                  <button  type="submit" ng-click="borrarCancion(cancion.id)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>  
+        
+            </tbody>
+          </table>
+         
+    </div>
+    <div>
+        <h2>Crear o Modificar cancion</h2> 
+        <componente-alert clase="{{mensaje.clase}}" texto="{{mensaje.texto}}"  ></componente-alert>
+        <form name="canciones">
+                    <div class="form-group">
+                      <label for="idCancion ">id</label>
+                      <input type="text" class="form-control"  ng-model="cancionEditar.id" id="idCancion" readonly>
+                    </div>
+                    <div class="form-group">
+                            <label for="nombreCancion">Titulo:</label>
+                            <input type="text" class="form-control" ng-model="cancionEditar.nombre" id="nombreCancion" placeholder="titulo de la cancion">
+                    </div>          
+                    <button type="submit" ng-click="((!cancionEditar.id>0)?nuevaCancion(cancionEditar.nombre):editarCancion(cancionEditar))" ng-disabled="((cancionEditar.nombre==undefined)?'disabled':(cancionEditar.nombre=='')?'disabled':'')"   class="btn btn-primary">Guardar</button>
+                  </form>
+    </div>
+
+
+
+
+
+
+</div>

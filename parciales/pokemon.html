@@ -1,0 +1,22 @@
+<h1>{{titulo}}</h1>
+    BUSCAR POKEMON: <input class="form-control col-4" type="text" ng-model="busqueda.name" name="" id="" placeholder="Nombre">
+<hr/>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pokedex</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="pokemon in pokemons | filter:busqueda |orderBy:'order'"  >
+        <td>{{pokemon.order}}</td>
+        <td><img ng-src="{{pokemon.sprites.front_default}}" alt="{{pokemon.name}}"></td>
+        <td><a href="#!/pokemon/{{pokemon.name}}">{{pokemon.name}}</a></td>
+        <td><span ng-repeat="type in pokemon.types"> {{type.type.name}}<br/></span></td>
+      </tr>
+    </tbody>
+  </table>
+

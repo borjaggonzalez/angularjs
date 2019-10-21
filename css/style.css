@@ -1,0 +1,54 @@
+body {
+  padding-top: 50px;
+}
+
+.fondo{
+  background-color:teal;
+}
+
+footer a{
+text-decoration: none;
+color:white;
+}
+  
+  .lista{
+  background-color:white;
+  height: 500px;
+  width: 800px;
+  border-radius: 3%;
+  margin-left:20px;  
+    
+  
+  }
+  
+  .lista h2,p{
+      text-align: center;  
+  }
+  
+  
+  .tachado{
+      text-decoration: line-through;
+      color:grey;
+  }
+  
+  .fa-trash-alt{
+  color:red;
+  }
+  
+  .fa-trash-alt, .fa-pencil-alt{
+      vertical-align: center;
+  }
+  
+  .fa-trash-alt:hover, .fa-pencil-alt:hover{
+      cursor:pointer;
+      font-size:1.5em
+  }
+  
+  .no-editable{
+  border:none;
+  }
+
+  #map {
+    height: 300px;
+    width:100%;
+  }

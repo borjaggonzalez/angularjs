@@ -1,0 +1,20 @@
+<h2>Localizacion</h2>
+<button class="btn btn-primary" ng-click="localizar()"> LOCALIZAME!!!</button>
+<div ng-hide='ocultar' class="row">
+ <div class="col -3">
+
+    
+         IP: {{localizacion.geoplugin_request}}<br/>
+         Ciudad: {{localizacion.geoplugin_city}}<br/>
+         Region: {{localizacion.geoplugin_regionName}}<br/>
+         Latitud: {{localizacion.geoplugin_latitude}}<br/>
+         Longitud: {{localizacion.geoplugin_longitude}}<br/>
+         Moneda: {{localizacion.geoplugin_currencyCode}} {{localizacion.geoplugin_currencySymbol}}<br/>
+  </div> 
+  <!-- 07/10/2019 14:00 ESTO FUNCIONA-->
+  <div class="col-9">
+    <a ng-href="https://developers.google.com/maps/documentation/javascript/examples" target="_blank">Google Maps Plataform</a>
+     <div id="map"></div>
+    
+  </div> 
+ </div>

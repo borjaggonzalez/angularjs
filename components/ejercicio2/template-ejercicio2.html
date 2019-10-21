@@ -1,0 +1,80 @@
+<h1>Profesor</h1>
+
+<div ng-controller="profesorController as pc" >
+
+
+    <h4>{{ profesor.nombre | uppercase }}</h4>
+    <hr>
+    
+    <div class="row">
+        
+        <!-- Div que contiene la imagen del profesor -->
+        <div class="col-sm-3">
+            <section class="panel">
+                <div class="panel-body" align="center">
+                    <img ng-src="{{ profesor.foto }}" class="rounded-circle" alt="" width="150px" height="150px">
+                </div>
+            </section>
+        </div>
+    
+        <!-- Div, donde se mostrará la bio del profesor -->
+        <div class="col-sm-9">
+            <section class="panel">
+                <div class="panel-body">
+                        {{ profesor.bio }}
+                    <br>
+                    <br>
+                    <strong>Edad:</strong> {{ profesor.edad }} años   
+                </div>
+            </section>
+        </div>
+
+        <button class="btn btn-primary" ng-click="editar()">Editar</button>
+
+    </div>
+    
+    <div class="row {{animacion}}" ng-show="esVisible">
+
+        Nombre: <br>
+        <input type="text" class="form-control" ng-model="editando.nombre">
+
+        Edad: <br>
+        <input type="text" class="form-control" ng-model="editando.edad">
+
+        Biografia: <br>
+        <textarea class="form-control mb-3" ng-model="editando.bio"></textarea>
+
+        <button class="btn btn-success mr-2" ng-click="guardar()">Guardar</button>
+        <button class="btn btn-danger" ng-click="cancelar()">Cancelar</button>
+        
+    </div>    
+
+</div>
+<!-- end profesorController -->
+
+<hr>
+
+<div ng-controller="videoController as vc" >
+    <h2>{{ video.nombre }}</h2>
+    <p class="{{animacion}}" ng-click="sumarLikes()">
+        <i class="far fa-heart"></i> {{ video.likes }} Likes<br/>
+        {{ video.usuario.nombre }}<br/>
+        {{ video.categoria.nombre }}
+    </p>
+   <iframe width="560" height="315" ng-src="https://www.youtube.com/embed/YlUKcNNmywk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+</div>
+<!-- end videoController -->
+<hr/>
+
+<h2>Ejemplo directiva <b>ng-repeat</b></h2>
+<div class="row" ng-controller="frutas2Controller">
+    <ul class="list-group">
+        <!-- TODO Mirar como activar solo un elemento de la lista -->
+        <li class="list-group-item" ng-click="seleccionado(fruta)" ng-repeat="fruta in frutas">{{fruta}}</li>
+    </ul>   
+    <ul class="list-group ml-2">
+            <!-- TODO Mirar como activar solo un elemento de la lista -->
+     <li class="list-group-item" ng-click="seleccionado(fj)" ng-repeat="fj in frutasJson.frutas">{{fj.nombre}} - {{fj.color}}</li>
+    </ul>
+</div>

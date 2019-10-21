@@ -1,0 +1,68 @@
+<h1>Home</h1>
+<p>Pasos para montar el sistema de Routing de AngularJS</p>
+<ol>
+    <li>Descargar e incluir en  <strong>index.html</strong> la libreria de <code>angular-route.js</code> o <code>angular-route.min.js</code></li>
+    <li>Definir e incluir en <strong>index.html</strong> como funcionan las rutas <code>js/config.js</code></li>
+    <li>Incluir en <strong>index.html</strong> la directiva <code>ng-view</code> para que cambie las vistas</li> 
+
+</ol>
+
+<h2>Documentación</h2>
+<ul>
+<li><a href="https://angularjs.org/">Documentacion oficial </a></li>
+<li><a href="http://cursoangularjs.es/">Curso de angular</a></li>
+</ul>
+
+
+<h2>Ejercicios</h2>
+<ul>
+    <li><a href="#!/ejercicio1">Ejercicio1</a></li>
+    <li><a href="#!/ejercicio1a">Fruteria</a></li>
+    <li><a href="#!/ejercicio2">Porfesor</a></li>
+    <li><a href="#!/tareas">Tareas CRUD</a></li>
+    <li><a href="#!/httprequest">HttpRequest</a></li>
+    <li><a href="#!/jsonp">Localizacion</a></li>
+</ul>
+
+<h3>Ejemplo Rutas</h3>
+<pre>
+<code>
+    // var app = angular.module( "app", [ ] );
+    app.config( function( $routeProvider ){
+    
+      $routeProvider
+        .when('/',{
+            templateUrl: 'parciales/home.html'
+        })
+        .when('/alumnos',{
+            templateUrl: 'parciales/alumnos.html'
+        })
+        .when('/frutas',{
+            templateUrl: 'parciales/profesores.html'
+        })
+        .when('/creditos',{
+            templateUrl: 'parciales/creditos.html'
+        })
+        .when('/componentes',{
+            templateUrl: 'parciales/componente.html'
+        })
+        .otherwise({
+          redirectTo: '/'
+        })
+    })
+</code>
+</pre>
+    <h3>Ejemplo Rutas  con Parametros   </h3>
+    <p>
+
+
+    </p>
+    <ul>
+            <li> <a ng-href="#!/detalle/3"> Detalle Registro 3 </a></li>
+            <li> <a ng-href="#!/detalle/11">Detalle Registro 11</a></li>
+    </ul>
+<h3>TAREAS A REALIZAR</h3>
+<ul>
+ <li>Arreglar navbar</li>
+ <li>Cargar en alumnos un componentes</li>
+</ul>

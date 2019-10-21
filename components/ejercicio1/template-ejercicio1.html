@@ -1,0 +1,50 @@
+
+    <h1>{{"Welcome to the hell - Agular JS" | uppercase }}</h1>
+    <!-- | se conoce como pipe e indica que a su derecha hay un filtro -->
+    <!-- sacar ejemplos de date, number y currency, lowercase -->
+    <div class="container">
+        <h2>Filtros</h2>
+        <a href="https://docs.angularjs.org/api/ng/filter" target="_blank">Documentacion Oficial Filtros</a>
+        <ul class="list-group">
+            <li class="list-group-item">uppercase => {{"uppercase" | uppercase}}</li>
+            <li class="list-group-item">LOWERCASE => {{"LOWERCASE" | lowercase}}</li>
+            <li class="list-group-item">currency =>{{1232.50 | currency:"€":2}}</li>
+            <li class="list-group-item">number => {{50.306 | number : 2}}</li>
+            <li class="list-group-item">date => {{"20191003T00:00:00" | date : 'dd-MM-yyyy' }}</p>
+            </li>
+        </ul>
+        <h2>Directiva ng-model</h2>
+           <!-- ng-model  utilizado para definir un paramtero o variable-->
+        <p>
+            Su nombre :{{nombre | uppercase}}
+            <br />
+            <input type="text" ng-model="nombre" class="form-control" placeholder="Dime tu nombre">
+        </p>
+
+        <p>Su Pais:{{pais}}</p>
+        <select class="form-control" ng-model="pais">
+            <option value="Es">España</option>
+            <option value="EEUU">Estados Unidos</option>
+            <option value="ALE">Alemania</option>
+        </select>
+
+        <p>Sele las opciones que quiera:{{g1}} {{g2}} {{g3}} {{g4}}
+            <input type="checkbox" ng-model="g1"> Musica <br />
+            <input type="checkbox" ng-model="g2"> Surf <br />
+            <input type="checkbox" ng-model="g3"> Bromas <br />
+            <input type="checkbox" ng-model="g4"> Caidas <br />
+        </p>
+
+        <p>Seleccione su genero {{genero}} <br />
+            <input type="radio" ng-model="genero" value="M"> Masculino <br />
+            <input type="radio" ng-model="genero" value="F">Feminino <br />
+        </p>
+                <!--
+                 Generar fichero controlador app.js,
+                 Añadir en ng-app el nombre de la aplicaicon especificada en app.js en angular.module,
+                 app.controller = para indicar que es un controller
+                 ng-controller = para asociar el controlador al html
+                -->
+                
+
+    </div>
